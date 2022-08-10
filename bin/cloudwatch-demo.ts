@@ -1,21 +1,25 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { CloudwatchDemoStack } from '../lib/cloudwatch-demo-stack';
+import "source-map-support/register";
+import * as cdk from "aws-cdk-lib";
+import { CloudwatchDemoStack } from "../lib/cloudwatch-demo-stack";
+import { LambdaCloudwatchAlarmStack } from "../lib/cloudwatch-lambda-demo";
 
 const app = new cdk.App();
-new CloudwatchDemoStack(app, 'CloudwatchDemoStack', {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
 
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+// cloudwatch monitor ec2
+new CloudwatchDemoStack(app, "CloudwatchDemoStack", {
+  vpcId: "vpc-07cafc6a819930727",
+  vpcName: "MyNetworkStack/VpcWithS3Endpoint",
+  env: {
+    region: "ap-southeast-1",
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+  },
+});
 
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
-
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+// cloudwatch monitor lambda
+new LambdaCloudwatchAlarmStack(app, "LambdaCloudWatchAlramStack", {
+  env: {
+    region: "ap-southeast-1",
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+  },
 });
