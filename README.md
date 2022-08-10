@@ -1,7 +1,7 @@
 ---
 title: CloudWatch Demos
 description: Simple monitor and turn off idle ec2, monitor lambda spike load and notification
-author: haitram
+author: haimtran
 publishedDate: 06/23/2022
 date: 2022-07-24
 ---
