@@ -1,7 +1,7 @@
 ---
 title: CloudWatch Demos
 description: Simple monitor and turn off idle ec2, monitor lambda spike load and notification
-author: estheragbaje
+author: haitram
 publishedDate: 06/23/2022
 date: 2022-07-24
 ---
@@ -13,6 +13,7 @@ Simple demos cloudwatch
 - Monitor and stop an idle ec2 to save cost
 - Monitor spike lambda concurrency and send notification
 - Add some custom dashboard/widgetes using CDK
+- [GitHub](https://github.com/entest-hai/cloudwatch-demo)
 
 ## CloudWath Monitor Lambda
 
